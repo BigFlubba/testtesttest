@@ -54,7 +54,7 @@ jobs:
       reason: ${{ steps.v.outputs.reason }}
     steps:
       - uses: actions/checkout@v4
-      - uses: docker/setup-buildx-action@v3
+      - uses: docker/setup-buildx-action@v4
       - name: Log in to GHCR
         if: github.event_name != 'pull_request'
         uses: docker/login-action@v3
@@ -224,7 +224,7 @@ jobs:
     steps:
       - uses: actions/checkout@v4
       - uses: docker/setup-qemu-action@v3
-      - uses: docker/setup-buildx-action@v3
+      - uses: docker/setup-buildx-action@v4
       - name: Log in to GHCR
         if: github.event_name != 'pull_request'
         uses: docker/login-action@v3
@@ -293,7 +293,7 @@ jobs:
       ARTIFACT: ghcr.io/${{ needs.check.outputs.repo }}-handbrake:${{ needs.check.outputs.hb_tag }}
     steps:
       - uses: actions/checkout@v4
-      - uses: docker/setup-buildx-action@v3
+      - uses: docker/setup-buildx-action@v4
       - uses: docker/login-action@v3
         with:
           registry: ${{ env.REGISTRY }}
@@ -390,7 +390,7 @@ jobs:
         FFMPEG_STAMP=${{ needs.check.outputs.ffmpeg_stamp }}
     steps:
       - uses: actions/checkout@v4
-      - uses: docker/setup-buildx-action@v3
+      - uses: docker/setup-buildx-action@v4
       - uses: docker/login-action@v3
         with:
           registry: ${{ env.REGISTRY }}
@@ -528,7 +528,7 @@ jobs:
       packages: write
     steps:
       - uses: actions/checkout@v4
-      - uses: docker/setup-buildx-action@v3
+      - uses: docker/setup-buildx-action@v4
       - uses: docker/login-action@v3
         with:
           registry: ${{ env.REGISTRY }}
