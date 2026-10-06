@@ -256,7 +256,7 @@ jobs:
           cache-to: type=gha,mode=max,scope=${{ matrix.target }}
       - name: Attest build provenance
         if: github.event_name != 'pull_request'
-        uses: actions/attest-build-provenance@v2
+        uses: actions/attest-build-provenance@v4
         with:
           subject-name: ${{ env.REGISTRY }}/${{ needs.check.outputs.repo }}-${{ matrix.target }}
           subject-digest: ${{ steps.build.outputs.digest }}
@@ -472,7 +472,7 @@ jobs:
           build-args: ${{ env.BUILD_ARGS }}
           cache-from: type=gha,scope=media
 
-      - uses: actions/attest-build-provenance@v2
+      - uses: actions/attest-build-provenance@v4
         with:
           subject-name: ${{ env.IMAGE }}
           subject-digest: ${{ steps.push.outputs.digest }}
